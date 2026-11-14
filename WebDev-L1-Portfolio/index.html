@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anita Bashir - frontend developer and final-year BSCS student. Skills, projects and contact details.">
+  <title>Anita Bashir | Frontend Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="#top">Anita<span>.</span></a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+        <span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero / profile -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to internships</p>
+          <h1>Hi, I&rsquo;m Anita Bashir.</h1>
+          <p class="role">Frontend Developer &amp; AI Enthusiast</p>
+          <p class="intro">I&rsquo;m a final-year Computer Science student who enjoys turning ideas into clean, responsive web pages. I work with HTML, CSS, JavaScript and Angular, and I&rsquo;m curious about how AI can make software more helpful.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View my projects</a>
+            <a class="btn btn-ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+
+        <figure class="avatar">
+          <img src="images/profile.jpg" width="800" height="800" alt="Portrait of Anita Bashir">
+        </figure>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section section-dark" id="about">
+      <div class="container about-grid">
+        <div>
+          <h2>About me</h2>
+          <p>I&rsquo;m studying BS Computer Science at the University of Azad Jammu &amp; Kashmir, Muzaffarabad. I like building things I can see and click, from small tools to full pages, and I care about layouts that look good on every screen.</p>
+          <p>Before moving into development I spent about two years tutoring Math and Computer to students in grades 3 to 8. It taught me to explain ideas simply, and I bring the same habit to my code and documentation.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Education</dt><dd>BS Computer Science (final year)</dd></div>
+          <div><dt>Focus</dt><dd>Frontend development and AI</dd></div>
+          <div><dt>Languages</dt><dd>Urdu and English</dd></div>
+          <div><dt>Based in</dt><dd>Islamabad, Pakistan</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section-mid" id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+          <article class="skill-card">
+            <h3>Frontend</h3>
+            <ul class="chips">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Angular</li><li>Responsive design</li><li>Flexbox &amp; Grid</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Tools</h3>
+            <ul class="chips">
+              <li>Git &amp; GitHub</li><li>VS Code</li><li>Browser DevTools</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>Learning &amp; interests</h3>
+            <ul class="chips">
+              <li>AI</li><li>Network security</li><li>Social network analysis</li>
+            </ul>
+          </article>
+          <article class="skill-card">
+            <h3>People skills</h3>
+            <ul class="chips">
+              <li>Teaching</li><li>Clear communication</li><li>Problem solving</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section section-dark" id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+
+          <article class="project">
+            <h3>QNIDS</h3>
+            <p>My BSCS final year project: a quantum-inspired, live network intrusion detection simulator, developed with a project partner under faculty supervision.</p>
+            <ul class="chips chips-small"><li>Final year project</li><li>Security</li><li>Simulation</li></ul>
+          </article>
+
+          <article class="project">
+            <h3>Keystone Login System</h3>
+            <p>Registration, login and a protected dashboard with salted and hashed passwords, duplicate checks and clear error messages.</p>
+            <ul class="chips chips-small"><li>JavaScript</li><li>Web Crypto</li><li>localStorage</li></ul>
+            <a class="project-link" href="https://github.com/anitaxhub/OIBSIP/tree/main/WebDev-L2-LoginSystem" target="_blank" rel="noopener">View code</a>
+          </article>
+
+          <article class="project">
+            <h3>Daily To-Do App</h3>
+            <p>Pending and completed lists with inline editing, delete, live counters, timestamps and saved tasks.</p>
+            <ul class="chips chips-small"><li>JavaScript</li><li>DOM</li><li>localStorage</li></ul>
+            <a class="project-link" href="https://github.com/anitaxhub/OIBSIP/tree/main/WebDev-L2-ToDoApp" target="_blank" rel="noopener">View code</a>
+          </article>
+
+          <article class="project">
+            <h3>Calculator</h3>
+            <p>A keyboard-friendly calculator built without <code>eval()</code>, with operator chaining and division-by-zero handling.</p>
+            <ul class="chips chips-small"><li>JavaScript</li><li>CSS Grid</li></ul>
+            <a class="project-link" href="https://github.com/anitaxhub/OIBSIP/tree/main/WebDev-L2-Calculator" target="_blank" rel="noopener">View code</a>
+          </article>
+
+          <article class="project">
+            <h3>Temperature Converter</h3>
+            <p>Converts Celsius, Fahrenheit and Kelvin with live validation and a friendly absolute zero message.</p>
+            <ul class="chips chips-small"><li>JavaScript</li><li>Validation</li></ul>
+            <a class="project-link" href="https://github.com/anitaxhub/OIBSIP/tree/main/WebDev-L1-TemperatureConverter" target="_blank" rel="noopener">View code</a>
+          </article>
+
+          <article class="project">
+            <h3>BloomBox Landing Page</h3>
+            <p>A responsive landing page for a skincare subscription brand with a soft, premium colour palette.</p>
+            <ul class="chips chips-small"><li>HTML5</li><li>CSS3</li><li>Responsive</li></ul>
+            <a class="project-link" href="https://github.com/anitaxhub/OIBSIP/tree/main/WebDev-L1-LandingPage" target="_blank" rel="noopener">View code</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey (education and experience) -->
+    <section class="section section-mid" id="journey">
+      <div class="container">
+        <h2>My journey</h2>
+        <ol class="journey">
+          <li>
+            <span class="when">2026</span>
+            <div>
+              <h3>Web Development Intern</h3>
+              <p class="where">Oasis Infobyte (OIBSIP)</p>
+              <p>Built and documented a series of web projects, from landing pages to a login system, and shared each one on GitHub.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">Now</span>
+            <div>
+              <h3>BS Computer Science</h3>
+              <p class="where">University of Azad Jammu &amp; Kashmir, Muzaffarabad</p>
+              <p>Final year student working on my thesis and coursework in areas such as social network analysis.</p>
+            </div>
+          </li>
+          <li>
+            <span class="when">2 years</span>
+            <div>
+              <h3>Home Tutor</h3>
+              <p class="where">Math and Computer, grades 3 to 8</p>
+              <p>Planned lessons, explained difficult topics in simple steps and tracked each student&rsquo;s progress.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section-dark" id="contact">
+      <div class="container contact">
+        <h2>Let&rsquo;s work together</h2>
+        <p class="contact-lead">I&rsquo;m looking for internship opportunities in web development. The quickest way to reach me is by email.</p>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:anitaaa41612@gmail.com">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">anitaaa41612@gmail.com</span>
+          </a>
+          <a class="contact-card" href="https://github.com/anitaxhub" target="_blank" rel="noopener">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">github.com/anitaxhub</span>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/anita-bashir-810a76412/" target="_blank" rel="noopener">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">Anita Bashir</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <p>&copy; <span id="year">2026</span> Anita Bashir. Built with HTML, CSS and JavaScript.</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
