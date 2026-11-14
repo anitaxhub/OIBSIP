@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A to-do list app with pending and completed lists. Add, complete, edit and delete tasks. Tasks are saved in your browser.">
+  <title>Daily To-Do | Pending and Completed Tasks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="app-header">
+      <h1>Daily To-Do</h1>
+      <p class="today" id="today"></p>
+    </header>
+
+    <!-- Add task -->
+    <form id="add-form" class="add-form" novalidate>
+      <label for="task-input" class="visually-hidden">New task</label>
+      <input id="task-input" type="text" maxlength="120" autocomplete="off" placeholder="What do you need to do today?" aria-describedby="form-error">
+      <button type="submit" class="btn btn-primary">Add Task</button>
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+    </form>
+
+    <div class="lists">
+
+      <!-- Pending tasks -->
+      <section class="panel" aria-labelledby="pending-title">
+        <div class="panel-head">
+          <h2 id="pending-title">Pending Tasks</h2>
+          <span class="count count-pending" id="pending-count" aria-live="polite">0 pending</span>
+        </div>
+        <ul id="pending-list" class="task-list"></ul>
+        <p id="pending-empty" class="empty" hidden>Nothing pending right now. Add a task above to get started.</p>
+      </section>
+
+      <!-- Completed tasks -->
+      <section class="panel" aria-labelledby="completed-title">
+        <div class="panel-head">
+          <h2 id="completed-title">Completed Tasks</h2>
+          <span class="count count-completed" id="completed-count" aria-live="polite">0 completed</span>
+        </div>
+        <ul id="completed-list" class="task-list"></ul>
+        <p id="completed-empty" class="empty" hidden>No completed tasks yet. Finish one and it will show up here.</p>
+      </section>
+
+    </div>
+
+    <p class="saved-note">Your tasks are saved in this browser, so they will still be here after a refresh.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
