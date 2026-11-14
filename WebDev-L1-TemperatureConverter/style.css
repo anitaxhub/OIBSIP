@@ -1,0 +1,266 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --ink: #14283f;
+  --ink-soft: #55677c;
+  --page: #e9f0f8;
+  --card: #ffffff;
+  --line: #d5e0ec;
+  --field: #f5f8fc;
+
+  --cold: #2b7bd6;     /* Celsius */
+  --warm: #e5604a;     /* Fahrenheit */
+  --deep: #1d9a8a;     /* Kelvin */
+  --error: #b3261e;
+  --error-bg: #fdecea;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* makes sure the HTML hidden attribute always wins over display rules */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;      /* body text */
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--page);
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+}
+
+h1 { font-size: clamp(1.9rem, 6vw, 2.5rem); }   /* heading size */
+h2 { font-size: 1.3rem; }                       /* sub-heading size */
+
+p { margin: 0; }
+
+/* ---------- Card ---------- */
+.card {
+  width: 100%;
+  max-width: 540px;
+  padding: 2.5rem 2.25rem 2rem;
+  background: var(--card);
+  border-radius: 24px;
+  box-shadow: 0 18px 50px rgba(20, 40, 63, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* cold-to-warm colour strip along the top of the card */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--cold), var(--deep), var(--warm));
+}
+
+.card-header { text-align: center; margin-bottom: 2rem; }
+.lede { margin-top: 0.6rem; color: var(--ink-soft); }
+
+/* ---------- Form ---------- */
+.field { margin-bottom: 1.5rem; }
+
+label, legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#temp-input {
+  width: 100%;
+  padding: 0.95rem 1.1rem;
+  font: inherit;
+  font-size: 1.35rem;
+  color: var(--ink);
+  background: var(--field);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+#temp-input::placeholder { color: #98a7b8; }
+
+#temp-input:focus {
+  outline: none;
+  border-color: var(--cold);
+  background: var(--card);
+  box-shadow: 0 0 0 4px rgba(43, 123, 214, 0.18);
+}
+
+#temp-input[aria-invalid="true"] {
+  border-color: var(--error);
+  background: var(--error-bg);
+}
+#temp-input[aria-invalid="true"]:focus { box-shadow: 0 0 0 4px rgba(179, 38, 30, 0.18); }
+
+.error {
+  margin-top: 0.6rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--error);
+  background: var(--error-bg);
+  border-radius: 10px;
+}
+
+/* ---------- Unit selector (radio buttons styled as a segmented control) ---------- */
+.units { border: 0; margin: 0 0 1.75rem; padding: 0; min-width: 0; }
+.units legend { padding: 0; }
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.segment { position: relative; }
+
+.segment input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.segment label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0.75rem 0.4rem;
+  text-align: center;
+  background: var(--field);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  pointer-events: none;
+}
+
+.segment .symbol { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; line-height: 1.2; }
+.segment .name   { font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); }
+
+.segment input:hover + label { border-color: #aebfd3; }
+
+.segment input:checked + label {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+}
+.segment input:checked + label .name { color: #c9d6e4; }
+
+.segment input:focus-visible + label {
+  outline: 3px solid var(--cold);
+  outline-offset: 2px;
+}
+
+/* ---------- Convert button ---------- */
+.convert-btn {
+  width: 100%;
+  padding: 1rem;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--cold);
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.convert-btn:hover { background: #1f66b8; }
+.convert-btn:active { transform: translateY(1px); }
+.convert-btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- Results ---------- */
+.results {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 2px dashed var(--line);
+}
+
+.hint { margin-top: 0.5rem; color: var(--ink-soft); }
+
+.result-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.result {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--field);
+  border-left: 6px solid var(--line);
+  border-radius: 12px;
+}
+
+.result-c { border-left-color: var(--cold); }
+.result-f { border-left-color: var(--warm); }
+.result-k { border-left-color: var(--deep); }
+
+.result-name { font-weight: 500; color: var(--ink-soft); }
+
+.result-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.result.is-input .result-name::after {
+  content: "input";
+  margin-left: 0.6rem;
+  padding: 0.1rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--ink);
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.formula-note {
+  margin-top: 1.75rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  body { padding: 1rem 0.75rem; align-items: start; }
+  .card { padding: 1.75rem 1.25rem 1.5rem; border-radius: 18px; }
+  .segmented { gap: 0.4rem; }
+  .segment .name { font-size: 0.78rem; }
+  .result { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+  .result-value { text-align: left; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

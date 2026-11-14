@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Convert temperatures between Celsius, Fahrenheit and Kelvin with live input validation.">
+  <title>Temperature Converter | Celsius, Fahrenheit, Kelvin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="card">
+    <header class="card-header">
+      <h1>Temperature Converter</h1>
+      <p class="lede">Convert between Celsius, Fahrenheit and Kelvin. All three results appear at once.</p>
+    </header>
+
+    <form id="converter-form" novalidate>
+
+      <div class="field">
+        <label for="temp-input">Temperature value</label>
+        <input
+          id="temp-input"
+          type="text"
+          inputmode="decimal"
+          autocomplete="off"
+          placeholder="e.g. 36.6"
+          aria-describedby="input-error"
+          aria-invalid="false">
+        <p id="input-error" class="error" role="alert" hidden></p>
+      </div>
+
+      <fieldset class="units">
+        <legend>Convert from</legend>
+        <div class="segmented">
+          <div class="segment">
+            <input type="radio" name="unit" id="unit-c" value="C" checked>
+            <label for="unit-c"><span class="symbol">&deg;C</span><span class="name">Celsius</span></label>
+          </div>
+          <div class="segment">
+            <input type="radio" name="unit" id="unit-f" value="F">
+            <label for="unit-f"><span class="symbol">&deg;F</span><span class="name">Fahrenheit</span></label>
+          </div>
+          <div class="segment">
+            <input type="radio" name="unit" id="unit-k" value="K">
+            <label for="unit-k"><span class="symbol">K</span><span class="name">Kelvin</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="convert-btn" id="convert-btn">Convert</button>
+    </form>
+
+    <section class="results" aria-labelledby="results-heading" aria-live="polite">
+      <h2 id="results-heading">Results</h2>
+      <p id="results-hint" class="hint">Enter a value and press Convert to see Celsius, Fahrenheit and Kelvin together.</p>
+
+      <ul id="result-list" class="result-list" hidden>
+        <li class="result result-c" data-unit="C">
+          <span class="result-name">Celsius</span>
+          <span class="result-value" id="out-c"></span>
+        </li>
+        <li class="result result-f" data-unit="F">
+          <span class="result-name">Fahrenheit</span>
+          <span class="result-value" id="out-f"></span>
+        </li>
+        <li class="result result-k" data-unit="K">
+          <span class="result-name">Kelvin</span>
+          <span class="result-value" id="out-k"></span>
+        </li>
+      </ul>
+    </section>
+
+    <p class="formula-note">Formulas: &deg;F = &deg;C &times; 9/5 + 32 &nbsp;|&nbsp; &deg;C = (&deg;F &minus; 32) &times; 5/9 &nbsp;|&nbsp; K = &deg;C + 273.15</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
